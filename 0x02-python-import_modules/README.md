@@ -17,3 +17,4 @@
 * 101-easy_print.py Prints #pythoniscool, followed by a new line
 * 102-magic_calculation.py Function that does exactly the same as a given Python bytecode
 * 103-fast_alphabet.py Prints the alphabet in uppercase, followed by a new line
+* new commit 
