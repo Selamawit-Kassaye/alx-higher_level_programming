@@ -1,12 +1,22 @@
 #!/usr/bin/node
 
-const fs = require('fs');
-const file = process.argv[2];
-
-fs.readFile(file, 'utf-8', function (err, data) {
-  if (err) {
-    console.log(err);
+const request = require('request');
+const url = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
+let def = {};
+request(url, function (error, response, body) {
+  if (error) {
+    console.log(error);
   } else {
-    console.log(data);
+    const abc = JSON.parse(body);
+    abc.characters.forEach(function (item, index, array) {
+      request(item, function (error, response, content) {
+        if (error) {
+          console.log(error);
+        } else {
+          def = JSON.parse(content);
+          console.log(def.name);
+        }
+      });
+    });
   }
 });
